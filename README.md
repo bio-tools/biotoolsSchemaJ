@@ -1,20 +1,23 @@
 # biotoolsSchemaJ
-**IMPORTANT - work in progress - do not code to this schema!**
+Here you'll find *biotoolsSchemaJ* - a JSON schema version of [biotoolsSchema](https://github.com/bio-tools/biotoolsschema) - a data model for describing computational tools in life sciences.
 
-Here you'll find biotoolsSchemaJ - a JSON schema version of biotoolsSchema:
+Production
+----------
+biotoolsSchemaJ mirrors biotoolsSchema as closely as possible where possible and desirable:
 * "Organisational" biotoolsSchema elements (whose purpose is only to structure the schema) are discarded: ```summary```, ```labels```
 * All other biotoolsSchema elements are preserved as JSON properties
 * biotoolsSchema element structure / nesting is preserved (whilst discarding XSD design patterns not applicable in JSON schema)
 * biotoolsSchema element names are preserved as JSON property names 
-* biotoolsSschema comments are preserved in JSON ```description:``` properties.  A convention is used where the first sentence is the attribute description, and everything following ```(NOTE:``` is an extended comment.
+* biotoolsSschema comments are preserved in JSON ```title```, ```description:``` and ```$comment``` properties.
 
-
+Structure
+---------
 To make bitoolsSchemaJ easy to understand and maintain, it uses JSON schema [definitions and references](https://cswr.github.io/JsonSchema/spec/definitions_references/) for objects, and properties with regex patterns, which are re-used in the schema:  
 <p align="center">
 <img src="assets/types.png" />
 </p>
 
-Of these, **tool** is the top-level object. **dataType** and **ontologyConcept** are defined but not actually yes (retained for now in case they find future use).  All the others are definitions that are refered to in multiple places within the schema.
+Of these, **tool** is the top-level object. **dataType** and **ontologyConcept** are defined but not actually used (they're retained for now in case they find future use).  All the others are definitions that are refered to in multiple places within the schema.
 
 
 # Files
