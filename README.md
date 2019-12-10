@@ -8,7 +8,7 @@ biotoolsSchemaJ mirrors biotoolsSchema as closely as possible where possible and
 * All other biotoolsSchema elements are preserved as JSON properties
 * biotoolsSchema element structure / nesting is preserved (whilst discarding XSD design patterns not applicable in JSON schema)
 * biotoolsSchema element names are preserved as JSON property names 
-* biotoolsSschema comments are preserved in JSON ```title```, ```description:``` and ```$comment``` properties.
+* biotoolsSschema comments are preserved in JSON ```title```, ```description``` and ```$comment``` properties.
 
 Structure
 ---------
