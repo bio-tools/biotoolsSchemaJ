@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/schema#",
+	"$schema": "http://json-schema.org/draft-04/schema#",
 	"description": "Description of one or more bioinformatics tools - application software with well-defined data processing functions (inputs, outputs and operations).  This includes simple tools with one or a few closely related functions, and complex, multimodal tools with many functions.  Tools may be available available for immediate use as online services, or in a form which which you can download, install, configure and run yourself.",
 	"type": "array",
 	"items": {
@@ -45,9 +45,9 @@
 				"biotoolsCURIE": {
 					"title": "bio.tools CURIE",
 					"description": "bio.tools CURIE (compact URI) based on the bio.tools tool ID.",
-					"$comment": "The bio.tools CURIE is simply the bio.tools tool ID with the prefix 'biotools:'.bio.tools CURIEs are set by bio.tools admin and will be disregarded if specified in a payload (e.g. PUSH, POST) to the bio.tools API.",
 					"type": "string",
 					"pattern": "^(biotools\\:[\\--\\.0-9A-Z_a-z]*)$",
+					"$comment": "The bio.tools CURIE is simply the bio.tools tool ID with the prefix 'biotools:'.bio.tools CURIEs are set by bio.tools admin and will be disregarded if specified in a payload (e.g. PUSH, POST) to the bio.tools API.",
 					"examples": [
 						"biotools:signalp"
 					]
@@ -65,7 +65,6 @@
 					"items": {
 						"title": "Tool unique identifiers",
 						"description": "A unique identifier of the software, typically assigned by an ID-assignment authority other than bio.tools.",
-						"$comment": "This field is not normally used for bio.tools toolIDs, but could be in the exceptional case that multiple such IDs were needed for a given entry.",
 						"type": "object",
 						"properties": {
 							"type": {
@@ -86,9 +85,6 @@
 								"title": "Value of tool identifier",
 								"description": "Value of tool identifier.",
 								"type": "string",
-								"examples": [
-									"10.1038/nmeth.1701"
-								],
 								"anyOf": [
 									{
 										"pattern": "^(10\\.[0-9]{4,9}/[\\(-\\)\\--<>A-\\[\\]_a-z]+)$"
@@ -102,6 +98,9 @@
 									{
 										"pattern": "^((B|I|O|T|O|O|L|S|biotools)\\:[\\--\\.0-9A-Z_a-z]*)$"
 									}
+								],
+								"examples": [
+									"10.1038/nmeth.1701"
 								]
 							},
 							"version": {
@@ -119,7 +118,8 @@
 						"required": [
 							"value"
 						],
-						"additionalProperties": false
+						"additionalProperties": false,
+						"$comment": "This field is not normally used for bio.tools toolIDs, but could be in the exceptional case that multiple such IDs were needed for a given entry."
 					}
 				},
 				"toolType": {
@@ -127,7 +127,6 @@
 					"items": {
 						"title": "Tool type",
 						"description": "A type of application software: a discrete software entity can have more than one type.",
-						"$comment": "bio.tools includes all types of bioinformatics tools: application software with well-defined data processing functions (inputs, outputs and operations). When registering a tool, one or more tool types may be assigned, reflecting the different facets of the software being described.",
 						"type": "string",
 						"enum": [
 							"Bioinformatics portal",
@@ -145,7 +144,8 @@
 							"Web service",
 							"Workbench",
 							"Workflow"
-						]
+						],
+						"$comment": "bio.tools includes all types of bioinformatics tools: application software with well-defined data processing functions (inputs, outputs and operations). When registering a tool, one or more tool types may be assigned, reflecting the different facets of the software being described."
 					}
 				},
 				"topic": {
@@ -153,14 +153,13 @@
 					"items": {
 						"title": "EDAM topics",
 						"description": "General scientific domain the software serves or other general category (EDAM Topic).",
-						"$comment": "An EDAM Topic concept URL and / or term are specified, e.g. 'Proteomics', http://edamontology.org/topic_0121.",
 						"type": "object",
 						"properties": {
 							"term": {
 								"title": "EDAM topic term",
 								"description": "An EDAM Topic term (preferred label or synonym).",
-								"$comment": "The term must be either the preferred label of the concept or a synonym of this term, as defined in EDAM.",
 								"type": "string",
+								"$comment": "The term must be either the preferred label of the concept or a synonym of this term, as defined in EDAM.",
 								"examples": [
 									"Proteomics"
 								]
@@ -168,15 +167,16 @@
 							"uri": {
 								"title": "EDAM Topic URI",
 								"description": "URL of an EDAM Topic concept.",
-								"$comment": "The URL must be in the EDAM Topic namespace, i.e. http://edamontology.org/topic.",
 								"type": "string",
 								"pattern": "^(http\\://edamontology\\.org/topic_[0-9]{4,4})$",
+								"$comment": "The URL must be in the EDAM Topic namespace, i.e. http://edamontology.org/topic.",
 								"examples": [
 									"http://edamontology.org/topic_0121"
 								]
 							}
 						},
-						"additionalProperties": false
+						"additionalProperties": false,
+						"$comment": "An EDAM Topic concept URL and / or term are specified, e.g. 'Proteomics', http://edamontology.org/topic_0121."
 					}
 				},
 				"operatingSystem": {
@@ -215,6 +215,7 @@
 							"Delphi",
 							"Dylan",
 							"Eiffel",
+							"Elm",
 							"Forth",
 							"Fortran",
 							"Groovy",
@@ -261,7 +262,6 @@
 				"license": {
 					"title": "Software or data usage license",
 					"description": "Software or data usage license.",
-					"$comment": "Identifier from the SPDX license list (https://spdx.org/licenses/).  In future, based on the supplied license, a label e.g. 'Open-source' may be applied to the entry in bio.tools.  Use 'Proprietary' where the software must be obtained from the provider (e.g. for money), and is then owned.  Use 'Freeware' for proprietary software that is available at no monetary cost. Use 'Not licensed' for software which is not licensed and is not proprietary, and 'Other' for software under license not currently supported by biotoolsSchema. Note that for online services, the license attribute refers to the license of the underlying software or data, or a part of those.",
 					"type": "string",
 					"enum": [
 						"0BSD",
@@ -590,7 +590,8 @@
 						"Other",
 						"Not licensed",
 						"Freeware"
-					]
+					],
+					"$comment": "Identifier from the SPDX license list (https://spdx.org/licenses/).  In future, based on the supplied license, a label e.g. 'Open-source' may be applied to the entry in bio.tools.  Use 'Proprietary' where the software must be obtained from the provider (e.g. for money), and is then owned.  Use 'Freeware' for proprietary software that is available at no monetary cost. Use 'Not licensed' for software which is not licensed and is not proprietary, and 'Other' for software under license not currently supported by biotoolsSchema. Note that for online services, the license attribute refers to the license of the underlying software or data, or a part of those."
 				},
 				"collectionID": {
 					"type": "array",
@@ -695,14 +696,13 @@
 								"items": {
 									"title": "EDAM Operations",
 									"description": "The basic operation(s) performed by this software function (EDAM Operation).",
-									"$comment": "An EDAM Operation concept URL and / or term are specified, e.g. 'Multiple sequence alignment', http://edamontology.org/operation_0492.",
 									"type": "object",
 									"properties": {
 										"term": {
 											"title": "EDAM Operation term",
 											"description": "An EDAM Operation term (preferred label or synonym).",
-											"$comment": "The term must be either the preferred label of the concept or a synonym of this term, as defined in EDAM.",
 											"type": "string",
+											"$comment": "The term must be either the preferred label of the concept or a synonym of this term, as defined in EDAM.",
 											"examples": [
 												"Multiple sequence alignment"
 											]
@@ -717,7 +717,8 @@
 											]
 										}
 									},
-									"additionalProperties": false
+									"additionalProperties": false,
+									"$comment": "An EDAM Operation concept URL and / or term are specified, e.g. 'Multiple sequence alignment', http://edamontology.org/operation_0492."
 								}
 							},
 							"input": {
@@ -1158,8 +1159,8 @@
 				"term": {
 					"title": "EDAM Data term",
 					"description": "An EDAM Data term (preferred label or synonym).",
-					"$comment": "The term must be either the preferred label of the concept or a synonym of this term, as defined in EDAM.",
 					"type": "string",
+					"$comment": "The term must be either the preferred label of the concept or a synonym of this term, as defined in EDAM.",
 					"examples": [
 						"Protein sequences"
 					]
@@ -1167,9 +1168,9 @@
 				"uri": {
 					"title": "EDAM Data URI",
 					"description": "URL of an EDAM Data concept.",
-					"$comment": "The URL must be in the EDAM Data namespace, i.e. http://edamontology.org/data.",
 					"type": "string",
 					"pattern": "^(http\\://edamontology\\.org/data_[0-9]{4,4})$",
+					"$comment": "The URL must be in the EDAM Data namespace, i.e. http://edamontology.org/data.",
 					"examples": [
 						"http://edamontology.org/data_2976"
 					]
@@ -1185,8 +1186,8 @@
 				"term": {
 					"title": "EDAM Format term",
 					"description": "An EDAM Format term (preferred label or synonym).",
-					"$comment": "The term must be either the preferred label of the concept or a synonym of this term, as defined in EDAM.",
 					"type": "string",
+					"$comment": "The term must be either the preferred label of the concept or a synonym of this term, as defined in EDAM.",
 					"examples": [
 						"FASTA"
 					]
@@ -1194,9 +1195,9 @@
 				"uri": {
 					"title": "EDAM Format URI",
 					"description": "URL of an EDAM Format concept.",
-					"$comment": "The URL must be in the EDAM  Format namespace, i.e. http://edamontology.org/format.",
 					"type": "string",
 					"pattern": "^(http\\://edamontology\\.org/format_[0-9]{4,4})$",
+					"$comment": "The URL must be in the EDAM  Format namespace, i.e. http://edamontology.org/format.",
 					"examples": [
 						"http://edamontology.org/format_1929"
 					]
@@ -1207,9 +1208,9 @@
 		"biotoolsIdType": {
 			"title": "bio.tools toolID",
 			"description": "Tool unique identifier assigned by bio.tools.",
-			"$comment": "bio.tools tool IDs are a URL-safe and Linked-Data-safe derivative of (often identical to) the tool name. Allowed characters are uppercase and lowercase English letters (case insensitive!), decimal digits, hyphen, period, and underscore. Spaces can be preserved as underscore ('_'). bio.tools tool IDs are set by bio.tools admin and will be disregarded if specified in a payload (e.g. PUSH, POST) to the bio.tools API.)",
 			"type": "string",
 			"pattern": "^([\\--\\.0-9A-Z_a-z]*)$",
+			"$comment": "bio.tools tool IDs are a URL-safe and Linked-Data-safe derivative of (often identical to) the tool name. Allowed characters are uppercase and lowercase English letters (case insensitive!), decimal digits, hyphen, period, and underscore. Spaces can be preserved as underscore ('_'). bio.tools tool IDs are set by bio.tools admin and will be disregarded if specified in a payload (e.g. PUSH, POST) to the bio.tools API.)",
 			"examples": [
 				"needle"
 			]
@@ -1264,10 +1265,10 @@
 		"textType": {
 			"title": "Free text",
 			"description": "Free text with a minimum length of 10 and maximum length of 1000.",
-			"$comment": "Line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces are not allowed / will be removed.",
 			"type": "string",
 			"minLength": 10,
 			"maxLength": 1000,
+			"$comment": "Line feeds, carriage returns, tabs, leading and trailing spaces, and multiple spaces are not allowed / will be removed.",
 			"examples": [
 				"Comment about the link."
 			]
@@ -1283,11 +1284,11 @@
 		"versionType": {
 			"title": "Tool version information",
 			"description": "Tool version label or version range.",
-			"$comment": "The name has a 100 character limit and may only contain space, uppercase and lowercase English letters, decimal digits, plus symbol, period, comma, dash, colon, semicolon and parentheses.",
 			"type": "string",
 			"minLength": 1,
 			"maxLength": 100,
 			"pattern": "^([ \\(-\\)\\+-\\.0-;A-Z_a-z  ᠎ -   　]*)$",
+			"$comment": "The name has a 100 character limit and may only contain space, uppercase and lowercase English letters, decimal digits, plus symbol, period, comma, dash, colon, semicolon and parentheses.",
 			"examples": [
 				"2.0 - 2.7"
 			]
