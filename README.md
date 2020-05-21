@@ -4,11 +4,12 @@ Here you'll find *biotoolsSchemaJ* - a JSON schema version of [biotoolsSchema](h
 Production
 ----------
 biotoolsSchemaJ mirrors biotoolsSchema as closely as possible where possible and desirable:
-* "Organisational" biotoolsSchema elements (whose purpose is only to structure the schema) are discarded: ```summary```, ```labels```
-* All other biotoolsSchema elements are preserved as JSON properties
+* biotoolsSchema elements [1] are preserved as JSON properties
 * biotoolsSchema element structure / nesting is preserved (whilst discarding XSD design patterns not applicable in JSON schema)
 * biotoolsSchema element names are preserved as JSON property names 
 * biotoolsSchema comments are preserved in JSON ```title```, ```description``` and ```$comment``` properties.
+
+[1] In biotoolsSchema 3.3.0 "organisational" elements (whose purpose was only to structure the schema) were discarded: ```summary```, ```labels```
 
 Structure
 ---------
@@ -25,11 +26,11 @@ Of these, **tool** is the top-level object. **dataType** and **ontologyConcept**
 File                            | Description
 ----                            | -----------
 biotoolsj.json                  | biotoolsSchemaJ (JSON schema)
-biotoolsSchema_json.xsd         | Hacked version of biotoolsSchema 3.2.0 (XSD schema) for reverse-engineering purposes
-stable                          | **ToDo** (Current stable version of the schema + docs)
+biotoolsSchema_json.xsd         | Ignore (biotoolsSchema 3.2.0 (XSD schema) produced for initial reverse-engineering of the JSON schema)
+stable                          | (not used yet) - current stable version of the schema + docs)
 docs                            | Technical docs formatted for website (latest stable version).  Hosted [here](http://bio-tools.github.io/biotoolsSchemaJ) (uses files copied from "stable" folder)
 docs/example.json		| Example tool description in JSON format
-versions                        | **ToDo** Older stable versions of the schema + docs
-LICENSE                         | **ToDo** biotoolsSchema license information
+versions                        | (not used yet) - older stable versions of the schema + docs
+LICENSE                         | biotoolsSchemaj license information
 assets                          | Folder for images and other assets
 README.md		        | This file

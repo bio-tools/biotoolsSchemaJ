@@ -1123,6 +1123,18 @@
 								"type": "string",
 								"pattern": "^(grid[\\w\\D][0-9]{4,}[\\w\\D][0-9a-f]{1,2})$"
 							},
+							"rorid": {
+								"title": "Tool credit ROR ID",
+								"description": "Unique identifier (ROR ID) of an organisation that is credited. (NOTE: Research Organization Registry (ROR) IDs provide a persistent reference to information on research organisations, see https://ror.org/.)",
+								"type": "string",
+								"pattern": ""
+							},
+							"fundrefid": {
+								"title": "Tool credit FundRef ID",
+								"description": "Unique identifier (FundRef ID or Funder ID) of a funding organisation that is credited. (NOTE: The Funder Registry (formerly FundRef) IDs provide a persistent reference to information on funding organisations registered in the Crossref registry, see https://www.crossref.org/services/funder-registry/.)",
+								"type": "string",
+								"pattern": ""
+							},
 							"typeEntity": {
 								"title": "Tool credit entity type",
 								"description": "Type of entity that is credited.",

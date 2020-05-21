@@ -319,7 +319,9 @@
 				"email": "0'0@0-0.0-0",
 				"url": "a",
 				"orcidid": "http://orcid.org/0000-0000-0000-0000",
-				"gridid": "grid 0000 0",
+			    "gridid": "grid 0000 0",
+			    "rorid": "03yrm5c26",
+			    "fundrefid": "10.13039/100009273",
 				"typeEntity": "Person",
 				"typeRole": [
 					"Primary contact",
@@ -332,7 +334,9 @@
 				"email": "0'0@0-0.0-0",
 				"url": "a",
 				"orcidid": "http://orcid.org/0000-0000-0000-0000",
-				"gridid": "grid 0000 0",
+			    "gridid": "grid 0000 0",
+			    			    "rorid": "03yrm5c26",
+			    "fundrefid": "10.13039/100009273",
 				"typeEntity": "Person",
 				"typeRole": [
 					"Primary contact",
@@ -658,7 +662,9 @@
 				"email": "0'0@0-0.0-0",
 				"url": "a",
 				"orcidid": "http://orcid.org/0000-0000-0000-0000",
-				"gridid": "grid 0000 0",
+			    "gridid": "grid 0000 0",
+			    			    "rorid": "03yrm5c26",
+			    "fundrefid": "10.13039/100009273",
 				"typeEntity": "Person",
 				"typeRole": [
 					"Primary contact",
@@ -671,7 +677,9 @@
 				"email": "0'0@0-0.0-0",
 				"url": "a",
 				"orcidid": "http://orcid.org/0000-0000-0000-0000",
-				"gridid": "grid 0000 0",
+			    "gridid": "grid 0000 0",
+			    			    "rorid": "03yrm5c26",
+			    "fundrefid": "10.13039/100009273",
 				"typeEntity": "Person",
 				"typeRole": [
 					"Primary contact",
