@@ -1,5 +1,5 @@
 # biotoolsSchemaJ
-Here you'll find documentation for *biotools.json* - the JSON schema version of [biotoolsSchema](https://github.com/bio-tools/biotoolsschema) - a data model for describing computational tools in life sciences.
+Here you'll find documentation for [biotools.json](https://github.com/bio-tools/biotoolsSchema/tree/master/jsonschema) - the JSON schema version of [biotoolsSchema](https://github.com/bio-tools/biotoolsschema) - a data model for describing computational tools in life sciences.
 
 
 # Files
